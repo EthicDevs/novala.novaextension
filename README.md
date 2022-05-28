@@ -2,6 +2,8 @@
 
 Advanced Vala language support for Nova (makes use of the Vala Language Server).
 
+[Install from Nova Extensions](https://extensions.panic.com/extensions/dev.ethic/dev.ethic.novala)
+
 ![Screenshot](https://i.ibb.co/FVNGFsz/image.png)
 
 ## Pre-requisites
