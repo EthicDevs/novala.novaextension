@@ -15,7 +15,7 @@ Advanced Vala language support for Nova (makes use of the Vala Language Server).
 
 Works on any of the `valac` supported "languages" files: `*.vala`, `*.genie`, `*.gjs`.
 
-- [x] Syntax Highlighting (from the original [Valanova]() extension).
+- [x] Syntax Highlighting (from the original [Valanova](https://github.com/Suzie97/valanova) extension).
 - [x] Hover tooltips
 - [x] Code Completion (through the Vala Language Server (VLS), path is configurable).
 - [x] Issues (errors & warning from VLS)
