@@ -1,0 +1,7 @@
+{
+  "dev.ethic.novala.config.useMesonBuildSystem" : true,
+  "dev.ethic.novala.config.vlsPath" : "\/usr\/local\/bin\/vala-language-server",
+  "workspace.art_style" : 0,
+  "workspace.color" : 9,
+  "workspace.name" : "NoVala.novaextension"
+}

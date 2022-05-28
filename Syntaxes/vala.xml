@@ -1,0 +1,192 @@
+<syntax name="vala">
+	<meta>
+		<name>Vala</name>
+		<type>structured</type>
+		<preferred-file-extension>vala</preferred-file-extension>
+	</meta>
+	<detectors>
+		<extension priority="1.0">vala</extension>
+	</detectors>
+	<indentation>
+		<increase>
+			<expression>\{</expression>
+		</increase>
+		<decrease>
+			<expression>\}</expression>
+		</decrease>
+	</indentation>
+	<brackets>
+		<pair open="{" close="}" />
+	</brackets>
+	<surrounding-pairs>
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="&apos;" close="&apos;" />
+	</surrounding-pairs>
+	<scopes>
+		<scope name="vala.single.comment">
+			<starts-with>
+				<expression>//</expression>
+			</starts-with>
+			<ends-with>
+				<expression>$</expression>
+			</ends-with>
+		</scope>
+		<scope name="vala.comment.block" spell-check="true">
+			<starts-with>
+				<expression>/\*</expression>
+			</starts-with>
+			<ends-with>
+				<expression>\*/$</expression>
+			</ends-with>
+			<subscopes>
+				<scope name="vala.valadoc.param">
+					<expression>.*(@[a-z]+) .*$</expression>
+					<capture number="1" name="vala.valadoc.identifier.key" />
+				</scope>
+			</subscopes>
+		</scope>
+		<scope name="vala.import.statement">
+			<expression>\s*(import)\s([a-z][A-Z0-9a-z\._]+)\.([A-Za-z0-9_]+|\*);</expression>
+			<capture number="1" name="vala.keyword" />
+			<capture number="2" name="vala.identifier.type" />
+			<capture number="3" name="vala.identifier.type" />
+		</scope>
+		<include syntax="self" collection="classname" />
+		<include syntax="self" collection="values" />
+		<include syntax="self" collection="keywords" />
+	</scopes>
+	<collections>
+		<collection name="values">
+			<include syntax="self" collection="strings" />
+			<include syntax="self" collection="numbers" />
+			<include syntax="self" collection="boolean" />
+		</collection>
+		<collection name="strings">
+			<scope name="vala.string">
+				<expression>&quot;.*&quot;</expression>
+			</scope>
+			<scope name="vala.string">
+				<expression>&apos;.*&apos;</expression>
+			</scope>
+		</collection>
+		<collection name="numbers">
+			<scope name="vala.numexp">
+				<expression>({|\s|\(|\[)([0-9\.]+(f|d|l|L)?)(?=\s|;|\)|\]|,|}|:)</expression>
+				<capture number="2" name="vala.value.number" />
+			</scope>
+		</collection>
+		<collection name="boolean">
+			<scope name="vala.value.boolean">
+				<strings>
+					<string>true</string>
+					<string>false</string>
+				</strings>
+			</scope>
+		</collection>
+		<collection name="classname">
+			<scope name="vala.classname">
+				<expression>(\s|\(|\.|&lt;)([A-Z][A-Za-z0-9_]+)</expression>
+				<capture number="2" name="vala.identifier.type" />
+			</scope>
+			<scope name="vala.classinvocation">
+				<expression>(\.([a-z][A-Za-z0-9_]+))(?=\s?\(|\.)</expression>
+				<capture number="2" name="vala.identifier.method" />
+			</scope>
+		</collection>
+		<collection name="keywords">
+			<scope name="vala.keyword">
+				<strings>
+					<string>if</string>
+					<string>else</string>
+					<string>switch</string>
+					<string>case</string>
+					<string>default</string>
+					<string>do</string>
+					<string>while</string>
+					<string>for</string>
+					<string>foreach</string>
+					<string>in</string>
+					<string>break</string>
+					<string>continue</string>
+					<string>return</string>
+					<string>try</string>
+					<string>catch</string>
+					<string>finally</string>
+					<string>throw</string>
+					<string>lock</string>
+					<string>class</string>
+					<string>interface</string>
+					<string>struct</string>
+					<string>enum</string>
+					<string>delegate</string>
+					<string>errordomain</string>
+					<string>const</string>
+					<string>weak</string>
+					<string>unowned</string>
+					<string>dynamic</string>
+					<string>abstract</string>
+					<string>virtual</string>
+					<string>override</string>
+					<string>signal</string>
+					<string>extern</string>
+					<string>static</string>
+					<string>async</string>
+					<string>inline</string>
+					<string>new</string>
+					<string>public</string>
+					<string>private</string>
+					<string>protected</string>
+					<string>internal</string>
+					<string>out</string>
+					<string>ref</string>
+					<string>throws</string>
+					<string>requires</string>
+					<string>ensures</string>
+					<string>namespace</string>
+					<string>using</string>
+					<string>as</string>
+					<string>is</string>
+					<string>in</string>
+					<string>new</string>
+					<string>delete</string>
+					<string>sizeof</string>
+					<string>typeof</string>
+					<string>this</string>
+					<string>base</string>
+					<string>null</string>
+					<string>true</string>
+					<string>false</string>
+					<string>get</string>
+					<string>set</string>
+					<string>default</string>
+					<string>value</string>
+					<string>construct</string>
+					<string>static construct</string>
+					<string>class construct</string>
+					<string>void</string>
+					<string>var</string>
+					<string>yield</string>
+					<string>global</string>
+					<string>owned</string>
+					<string>bool</string>
+					<string>string</string>
+					<string>uint</string>
+					<string>int</string>
+					<string>long</string>
+					<string>int8</string>
+					<string>int16</string>
+					<string>int32</string>
+					<string>int64</string>
+					<string>uint8</string>
+					<string>uint16</string>
+					<string>uint32</string>
+					<string>uint64</string>
+					<string>char</string>
+					<string>unichar</string>
+				</strings>
+			</scope>
+		</collection>
+	</collections>
+</syntax>

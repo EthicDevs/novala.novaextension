@@ -1,0 +1,96 @@
+{
+  "identifier": "dev.ethic.novala",
+  "name": "NoVala",
+  "organization": "EthicDevs",
+  "description": "Advanced Vala language support for Nova",
+  "version": "0.1.0",
+  "categories": [
+    "completions",
+    "formatters",
+    "issues",
+    "languages",
+    "sidebars"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/EthicDevs/novala.novaextension",
+  "bugs": "https://github.com/EthicDevs/novala.novaextension/issues",
+
+  "main": "main.js",
+  "min_runtime": "2.0",
+
+  "activationEvents": [
+    "onLanguage:vala",
+    "onLanguage:genie",
+    "onLanguage:gjs",
+    "onWorkspaceContains:.valarc",
+    "onWorkspaceContains:poulp.json",
+    "onWorkspaceContains:meson.build",
+    "onWorkspaceContains:CMakeLists.txt",
+    "onWorkspaceContains:build.sh",
+    "onWorkspaceContains:compile_commands.json"
+  ],
+
+  "entitlements": {
+    "process": true,
+    "filesystem": "readwrite"
+  },
+
+  "config": [
+    {
+      "key": "dev.ethic.novala.config.vlsPath",
+      "title": "Vala Language Server Path",
+      "description": "Path to the Vala Language Server. See help for installation instructions.",
+      "link": "https://github.com/vala-lang/vala-language-server",
+      "placeholder": "/usr/(local?/)bin/vala-language-server",
+      "type": "string"
+    },
+    {
+      "key": "dev.ethic.novala.config.useMesonBuildSystem",
+      "title": "Use Meson Build System",
+      "description": "Instruct the Vala Language Server to use the Meson Build System for detecting dependencies and files.",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+
+  "configWorkspace": [
+    {
+      "key": "dev.ethic.novala.config.vlsPath",
+      "title": "Vala Language Server Path",
+      "description": "Path to the Vala Language Server. See help for installation instructions.",
+      "link": "https://github.com/vala-lang/vala-language-server",
+      "placeholder": "/usr/(local?/)bin/vala-language-server",
+      "type": "string"
+    },
+    {
+      "key": "dev.ethic.novala.config.useMesonBuildSystem",
+      "title": "Use Meson Build System",
+      "description": "Instruct the Vala Language Server to use the Meson Build System for detecting dependencies and files.",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+
+  "sidebars": [
+    {
+      "id": "dev.ethic.novala.sidebar",
+      "name": "NoVala",
+      "smallImage": "SidebarSmall",
+      "largeImage": "SidebarLarge",
+      "sections": [
+        {
+          "id": "dev.ethic.novala.sidebar.info",
+          "name": "Information",
+          "placeholderText": "NoVala Extension Information",
+          "headerCommands": [
+            {
+              "title": "Refresh",
+              "image": "__builtin.refresh",
+              "command": "dev.ethic.novala.reload"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
